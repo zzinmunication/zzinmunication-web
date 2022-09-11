@@ -9,7 +9,7 @@ import {
   NotificationOutlined,
 } from "@ant-design/icons";
 import { Link, useLocation } from "react-router-dom";
-import LanguageSelector from "components/LanguageSelector";
+// import LanguageSelector from "components/LanguageSelector";
 import { assignRouteArrayProps } from "utils";
 
 const { SubMenu } = Menu;
@@ -74,17 +74,17 @@ const DefaultLayout: FunctionComponent<IDefaultLayoutProps> = (props) => {
   return (
     <Layout style={defaultStyle}>
       <Header className="header" style={{ display: "flex" }}>
-        <div className="logo" style={{ color: "white", width: 200 }}>
+        <div className="logo" style={{ color: "white", width: 150 }}>
           {fm({ id: "title" })}
         </div>
         <Menu theme="dark" mode="horizontal" style={menuStyle} activeKey={location.pathname} selectable={false}>
           {defaultMenus.map(({ componentKey, path }) => <Menu.Item key={path}>
             <Link to={path}>{componentKey} ({path})</Link>
           </Menu.Item>)}
-
+{/* 
           <Menu.Item key="language-selector" disabled style={{ opacity: 1, marginLeft: 'auto' }}>
             <LanguageSelector />
-          </Menu.Item>
+          </Menu.Item> */}
         </Menu>
       </Header>
       <Layout>
