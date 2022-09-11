@@ -30,7 +30,7 @@ const Category: FunctionComponent<ICategoryProps> = (props) => {
           style={{ background: 'white', marginTop: 16 }}
           header={<div>검색내용: {debounceSearch}</div>}
           bordered
-          dataSource={dataKeys.filter(v => v.toLowerCase().includes(debounceSearch.toLowerCase()))}
+          dataSource={dataKeys.filter(v => v.replaceAll(' ', '').toLowerCase().includes(debounceSearch.replaceAll(' ', '').toLowerCase()))}
           renderItem={item => (
             <List.Item onClick={() => {
               navigate(`/detail/${item}`)
