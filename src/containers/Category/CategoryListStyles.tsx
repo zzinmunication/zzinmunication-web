@@ -6,6 +6,9 @@ interface Props {
 }
 
 export const ListHover: any = styled.div`
+  .ant-list-header {
+    border-bottom: 1px solid black;
+  }
   ul.ant-list-items {
     & > li.ant-list-item:hover {
       background-color: rgba(0, 0, 0, 0.1);

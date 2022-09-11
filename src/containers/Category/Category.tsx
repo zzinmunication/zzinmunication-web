@@ -5,20 +5,12 @@ import React, {
   useEffect,
   useMemo
 } from "react";
-import { Input, List, Typography } from 'antd';
+import { Input, List } from 'antd';
 import { useDebounce } from 'use-debounce';
 import { ListHover } from "./CategoryListStyles";
 
 interface ICategoryProps {
 }
-
-const data = [
-  'Racing car sprays burning fuel into crowd.',
-  'Japanese princess to wed commoner.',
-  'Australian walks 100km after outback crash.',
-  'Man charged over missing wedding girl.',
-  'Los Angeles battles huge wildfires.',
-];
 
 const Category: FunctionComponent<ICategoryProps> = (props) => {
   const [search, setSearch] = useState<string>("")
