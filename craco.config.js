@@ -14,7 +14,8 @@ module.exports = {
 					lessOptions: {
 						modifyVars: {
 							"@primary-color": "#1DA57A",
-							"@border-radius-base": "10px"
+							"@border-radius-base": "10px",
+							"@font-family": "'NanumSquareRound', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif"
 						},
 						javascriptEnabled: true,
 					},
