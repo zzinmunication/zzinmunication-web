@@ -1,29 +1,21 @@
 const {ESLINT_MODES } = require("@craco/craco");
 const CracoLessPlugin = require('craco-less');
-const CracoAntDesignPlugin = require("craco-antd");
 const CracoAlias = require("craco-alias");
 const OpenBrowserPlugin = require("open-browser-webpack-plugin");
-const path = require("path");
 const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
 	reactScriptsVersion: "react-scripts",
 	plugins: [
 		{
-			plugin: CracoAntDesignPlugin,
-			options: {
-				customizeThemeLessPath: path.join(
-					__dirname,
-					"src/theme/customize.theme.less"
-				),
-			},
-		},
-		{
 			plugin: CracoLessPlugin,
 			options: {
 				lessLoaderOptions: {
 					lessOptions: {
-						modifyVars: {},
+						modifyVars: {
+							"@primary-color": "#1DA57A",
+							"@border-radius-base": "10px"
+						},
 						javascriptEnabled: true,
 					},
 				},
