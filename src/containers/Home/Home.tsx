@@ -77,8 +77,9 @@ const Home: FunctionComponent<ICardViewProps> = (props) => {
                   dangerouslySetInnerHTML={{ __html: value.split("\n").join("<br />") }} />
               </div>}
               bordered={false}
+              hoverable={true}
               onClick={() => {
-                console.log('test')
+                console.log('key', key)
               }}
               style={{ textAlign: 'right', backgroundColor: getPastelColor(key).hex }}>
               <ArrowRightOutlined style={{ marginRight: '0px' }} />
