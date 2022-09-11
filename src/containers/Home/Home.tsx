@@ -26,7 +26,7 @@ const favoriteCategory: Category[] = [
     image: whenEat
   },
   {
-    value: "심심할 떄",
+    value: "심심할 때",
     key: "when_bored"
   },
   {
@@ -35,7 +35,7 @@ const favoriteCategory: Category[] = [
     image: whenDate
   },
   {
-    value: "변명이\n필요할 떄",
+    value: "변명이\n필요할 때",
     key: "when_need_excuse",
     color: "#ffe98c",
     image: whenNeedExcuse
@@ -77,6 +77,9 @@ const Home: FunctionComponent<ICardViewProps> = (props) => {
                   dangerouslySetInnerHTML={{ __html: value.split("\n").join("<br />") }} />
               </div>}
               bordered={false}
+              onClick={() => {
+                console.log('test')
+              }}
               style={{ textAlign: 'right', backgroundColor: getPastelColor(key).hex }}>
               <ArrowRightOutlined style={{ marginRight: '0px' }} />
             </Card>
