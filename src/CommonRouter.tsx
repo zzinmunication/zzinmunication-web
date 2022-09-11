@@ -2,6 +2,7 @@ import React, { Suspense, lazy, FunctionComponent } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { routerMeta } from 'meta';
 import { assignRouteArrayProps } from 'utils';
+import NotFound from 'components/NotFound';
 
 interface ICustomRotuerProps {
 }
@@ -33,6 +34,7 @@ const CommonRouter: FunctionComponent<ICustomRotuerProps> = (props) => {
           return <Route key={propsArr.path} element={<Comp />} {...propsArr} />
         }
       })}
+      <Route path="*" element={<NotFound />} />
     </Routes>
   </Suspense>;
 };

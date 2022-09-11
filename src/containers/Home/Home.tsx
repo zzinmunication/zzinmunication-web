@@ -1,6 +1,11 @@
 import React, { FunctionComponent, CSSProperties } from "react";
 import DefaultLayout from "components/DefaultLayout";
-import { Card, Col, Row } from "antd";
+import {
+  Button,
+  Card,
+  Col,
+  Row
+} from "antd";
 import { Category } from "interface/Category";
 import { ArrowRightOutlined } from "@ant-design/icons";
 import whenDate from "images/when_date.png"
@@ -9,14 +14,13 @@ import whenNeedExcuse from "images/when_need_excuse.png"
 import {
   getPastelColor
 } from "pastel-color";
+import { useNavigate } from "react-router";
 
 interface ICardViewProps {}
 
 interface Props {
   style?: CSSProperties;
 }
-
-
 
 const favoriteCategory: Category[] = [
   {
@@ -52,6 +56,7 @@ const favoriteCategory: Category[] = [
 ]
 
 const Home: FunctionComponent<ICardViewProps> = (props) => {
+  const navigate = useNavigate()
   return (
     <DefaultLayout>
       <Row gutter={[16, 16]}>
@@ -79,7 +84,7 @@ const Home: FunctionComponent<ICardViewProps> = (props) => {
               bordered={false}
               hoverable={true}
               onClick={() => {
-                console.log('key', key)
+                navigate(`/detail/${value}`)
               }}
               style={{ textAlign: 'right', backgroundColor: getPastelColor(key).hex }}>
               <ArrowRightOutlined style={{ marginRight: '0px' }} />
@@ -87,6 +92,16 @@ const Home: FunctionComponent<ICardViewProps> = (props) => {
           </Col>
         })}
       </Row>
+      <Button size={"large"} style={{
+        marginTop: 10,
+        width: '100%',
+        height: 'auto',
+        padding: 20,
+        fontSize: 20,
+        fontWeight: 'bold'
+      }} onClick={() => navigate('/category')} block>
+        더 보러 가기 <ArrowRightOutlined />
+      </Button>
     </DefaultLayout>
   );
 };

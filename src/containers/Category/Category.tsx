@@ -9,6 +9,7 @@ import { useDebounce } from 'use-debounce';
 import { ListHover } from "./CategoryListStyles";
 import { useRecoilValue } from "recoil";
 import dataSetState from 'state/dataset';
+import { useNavigate } from "react-router";
 
 interface ICategoryProps {
 }
@@ -17,6 +18,7 @@ const Category: FunctionComponent<ICategoryProps> = (props) => {
   const [search, setSearch] = useState<string>("")
   const [debounceSearch] = useDebounce(search, 500)
   const data = useRecoilValue(dataSetState)
+  const navigate = useNavigate()
 
   const dataKeys = useMemo(() => Object.keys(data), [data])
 
@@ -30,7 +32,9 @@ const Category: FunctionComponent<ICategoryProps> = (props) => {
           bordered
           dataSource={dataKeys.filter(v => v.toLowerCase().includes(debounceSearch.toLowerCase()))}
           renderItem={item => (
-            <List.Item>
+            <List.Item onClick={() => {
+              navigate(`/detail/${item}`)
+            }}>
               {item}
             </List.Item>
           )}

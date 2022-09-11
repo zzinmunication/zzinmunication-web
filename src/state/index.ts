@@ -1,5 +1,6 @@
 export { default as lang } from './lang'
 export { default as token } from './token'
 export { default as dataset } from './dataset'
+export { default as dataSelector } from './dataSelector'
 export { default as search } from './search'
 export { default as location } from './location'

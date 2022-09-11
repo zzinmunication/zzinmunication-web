@@ -7,6 +7,7 @@ export type RouterMetaTypes = { [key: string] : RouteMetaType | RouteMetaType[] 
 const routerMeta: RouterMetaTypes = {
   Home: { path: '/' },
   Category: ['/category'],
+  Detail: ['/detail/:query'],
 }
 
 export default routerMeta
