@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import { routerMeta } from 'meta';
 import { assignRouteArrayProps } from 'utils';
 import NotFound from 'components/NotFound';
+import FlexCenter from 'components/FlexCenter';
 
 interface ICustomRotuerProps {
 }
@@ -23,7 +24,7 @@ const assignRouter: AssignRoute[] = Object.keys(routerMeta).map((componentKey: s
 })
 
 const CommonRouter: FunctionComponent<ICustomRotuerProps> = (props) => {
-  return <Suspense fallback={<div>Loading...</div>}>
+  return <Suspense fallback={<FlexCenter>Loading...</FlexCenter>}>
     <Routes>
       {assignRouter.map(({ Comp, propsArr }) => {
         if (Array.isArray(propsArr)) {

@@ -8,8 +8,10 @@ import React, {
 import { useParams } from "react-router";
 import { useRecoilValue } from 'recoil';
 import dataSelectorState from 'state/dataSelector';
-import range from "utils/range";
-import shuffle from "utils/shuffle";
+import { range, shuffle } from "utils";
+import {
+  getPastelColor
+} from "pastel-color";
 
 interface IDetailProps {
 }
@@ -31,14 +33,24 @@ const Detail: FunctionComponent<IDetailProps> = (props) => {
     [randomKey, selectData.length],
   )
   
-  
   return (
     <DefaultLayout>
-      <FlexCenter style={{ flexFlow: 'column' }}>
+      <FlexCenter style={{ flexFlow: 'column', height: '100%' }}>
         <div style={{ fontSize: 30 }}>
-          추천멘트: <b>{selectData[shuffles[randomKey]]}</b>
+          <div style={{ textAlign: 'center' }}>
+            {`<${query} 추천멘트>`}
+          </div>
+          <FlexCenter style={{
+            border: `3px dashed ${getPastelColor(query).hex}`,
+            marginTop: 5,
+            minHeight: '150px',
+            borderRadius: 10,
+            padding: 16
+          }}>
+            <b style={{ wordBreak: 'keep-all' }}>{selectData[shuffles[randomKey]]}</b>
+          </FlexCenter>
         </div>
-        <Button size={"large"} icon={<RedoOutlined />} style={{ marginTop: 10, width: 120 }} onClick={next} block>
+        <Button size={"large"} icon={<RedoOutlined />} style={{ marginTop: 16, width: 120 }} onClick={next} block>
           새로고침
         </Button>
       </FlexCenter>

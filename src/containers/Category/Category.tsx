@@ -24,10 +24,10 @@ const Category: FunctionComponent<ICategoryProps> = (props) => {
 
   return (
     <DefaultLayout>
-      <Input placeholder="input search text" size="large" onChange={(e: any) => setSearch(e?.target?.value)} />
+      <Input placeholder="검색" size="large" onChange={(e: any) => setSearch(e?.target?.value)} />
       <ListHover>
         <List
-          style={{ background: 'white', marginTop: 10 }}
+          style={{ background: 'white', marginTop: 16 }}
           header={<div>검색내용: {debounceSearch}</div>}
           bordered
           dataSource={dataKeys.filter(v => v.toLowerCase().includes(debounceSearch.toLowerCase()))}
