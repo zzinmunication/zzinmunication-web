@@ -61,15 +61,18 @@ const Home: FunctionComponent<ICardViewProps> = (props) => {
               <div style={{ position: 'relative' }}>
                 {image && <img src={image} style={{
                   position: 'absolute',
-                  top: 10,
-                  left: 10,
-                  width: 200
+                  top: 5,
+                  left: 5,
+                  height: 90,
+                  zIndex: 0
                 }} alt={value} />}
                 <div
                   style={{
+                    position: 'relative',
                     height: 87,
                     fontWeight: 'bold',
-                    fontSize: 20
+                    fontSize: 20,
+                    zIndex: 1
                   }}
                   dangerouslySetInnerHTML={{ __html: value.split("\n").join("<br />") }} />
               </div>}
