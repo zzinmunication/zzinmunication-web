@@ -7,7 +7,7 @@ import {
   Row
 } from "antd";
 import { Category } from "interface/Category";
-import { ArrowRightOutlined } from "@ant-design/icons";
+import { ArrowRightOutlined, GithubOutlined } from "@ant-design/icons";
 import whenDate from "images/when_date.png"
 import whenEat from "images/when_eat.png"
 import whenBored from "images/when_bored.png"
@@ -58,11 +58,13 @@ const favoriteCategory: Category[] = [
   }
 ]
 
+const GITHUB_URL = "https://github.com/zzinmunication/zzinmunication-web/"
+
 const Home: FunctionComponent<ICardViewProps> = (props) => {
   const navigate = useNavigate()
   return (
     <DefaultLayout>
-      <Row gutter={[16, 16]}>
+      <Row gutter={[16, 16]} style={{ overflow: 'auto' }}>
         {favoriteCategory.map(({ key, value,  image }) => {
           const pathValue = value.replaceAll('\n', ' ')
           return <Col xs={24} sm={12} md={12} lg={8} xl={8} key={key}>
@@ -95,17 +97,44 @@ const Home: FunctionComponent<ICardViewProps> = (props) => {
             </Card>
           </Col>
         })}
+                <Col span={24}>
+          <Button size={"large"} style={{
+            width: '100%',
+            height: 'auto',
+            padding: 20,
+            fontSize: 20,
+            fontWeight: 'bold'
+          }} onClick={() => navigate('/category')} block>
+            더 보러 가기 <ArrowRightOutlined />
+          </Button>
+        </Col>
+        <Col xs={24} sm={12} md={12} lg={12} xl={12}>
+          <Button size={"small"}
+            icon={<GithubOutlined />}
+            style={{
+              width: '100%',
+              height: 'auto',
+              padding: 8,
+              fontWeight: 'bold'
+            }}
+            onClick={() => window.open(`${GITHUB_URL}/pulls`)} block>
+            PR로 멘트 직접 추가하기
+          </Button>
+        </Col>
+        <Col xs={24} sm={12} md={12} lg={12} xl={12}>
+          <Button size={"small"}
+            icon={<GithubOutlined />}
+            style={{
+              width: '100%',
+              padding: 8,
+              height: 'auto',
+              fontWeight: 'bold'
+            }}
+            onClick={() => window.open(`${GITHUB_URL}/issues/new`)} block>
+            이슈로 멘트 요청하기
+          </Button>
+        </Col>
       </Row>
-      <Button size={"large"} style={{
-        marginTop: 16,
-        width: '100%',
-        height: 'auto',
-        padding: 20,
-        fontSize: 20,
-        fontWeight: 'bold'
-      }} onClick={() => navigate('/category')} block>
-        더 보러 가기 <ArrowRightOutlined />
-      </Button>
     </DefaultLayout>
   );
 };
