@@ -1,5 +1,7 @@
 # React Zzinmunication Web
 
+**이슈와 PR을 통해 [/public/zzinmunication_dataset.json](/public/zzinmunication_dataset.json)에 있는 내용을 업데이트 부탁드려요!**
+
 ## From React Boilerplate
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and [craco](https://github.com/gsoft-inc/craco).
