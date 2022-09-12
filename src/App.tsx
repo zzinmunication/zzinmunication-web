@@ -19,9 +19,14 @@ const App: FunctionComponent<any> = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(async () => {
     const response = await fetch('/zzinmunication_dataset.json')
-    const data = await response.json()
-    setDataSet(data)
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    const data: any[] = await response.json()
+    const assignMap = data.reduce((prev, { title, comments }) => {
+      prev.set(title, comments)
+      return prev
+    }, new Map<string, string[]>())
+    // console.log('assignMap', assignMap)
+    setDataSet(assignMap)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   
 

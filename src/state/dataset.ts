@@ -1,12 +1,8 @@
 import { atom } from "recoil";
 
-export interface DataType {
-  [key: string]: string[]
-}
-
-const dataSetState = atom<DataType>({
+const dataSetState = atom<Map<string, string[]>>({
   key: 'dataSetState',
-  default: {}
+  default: new Map<string, string[]>()
 });
 
 export default dataSetState
