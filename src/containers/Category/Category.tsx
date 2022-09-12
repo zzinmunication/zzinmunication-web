@@ -17,10 +17,10 @@ interface ICategoryProps {
 const Category: FunctionComponent<ICategoryProps> = (props) => {
   const [search, setSearch] = useState<string>("")
   const [debounceSearch] = useDebounce(search, 500)
-  const data = useRecoilValue(dataSetState)
+  const data = useRecoilValue<Map<string, string[]>>(dataSetState)
   const navigate = useNavigate()
 
-  const dataKeys = useMemo(() => Object.keys(data), [data])
+  const dataKeys = useMemo<string[]>(() => Array.from(data.keys()), [data])
 
   return (
     <DefaultLayout>
